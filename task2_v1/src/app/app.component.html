@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <app-comp-two
+        (fruitCreated)="onFruitReceived($event)"
+        (numberCreated)="onNumberReceived($event)"
+      ></app-comp-two>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-comp-one
+        *ngFor="let fruit of fruitsReceived"
+        [fruitName]="fruit"
+      ></app-comp-one>
+      <app-comp-one
+        *ngIf="numberReceived"
+        [primeNumber]="numberReceived"
+      ></app-comp-one>
+    </div>
+  </div>
+</div>

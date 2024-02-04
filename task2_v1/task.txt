@@ -1,0 +1,5 @@
+create two components accessible from the same route. 
+Component 1 will have Component 2 inside it.
+Component 2 will have two text fields: "Is Fruit" and "Is Prime". 
+Inputs in the child component will be passed to the parent component, and the parent will display them. 
+Regarding the "Is Prime" field, the parent will decide if the number passed from the child is prime or not.
