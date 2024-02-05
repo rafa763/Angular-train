@@ -1,0 +1,12 @@
+<div>
+  <input type="text" [(ngModel)]="fruitName" placeholder="Enter a fruit name" />
+  <button (click)="addItem()">Add Fruit</button>
+</div>
+<div>
+  <input type="text" [(ngModel)]="primeNumber" placeholder="Enter a number" />
+  <button (click)="sendNumber()">Add Number</button>
+</div>
+<app-child-component
+  [fruitsx]="fruits"
+  [receivedNumber]="primeNumber"
+></app-child-component>

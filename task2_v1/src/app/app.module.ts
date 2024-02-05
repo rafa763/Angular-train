@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CompOneComponent } from './comp-one/comp-one.component';
-import { CompTwoComponent } from './comp-two/comp-two.component';
+import { ParentComponent } from './parent/parent-component.component';
+import { ChildComponent } from './child/child-component.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, CompOneComponent, CompTwoComponent],
+  declarations: [AppComponent, ParentComponent, ChildComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
