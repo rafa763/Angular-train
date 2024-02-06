@@ -1,23 +1,13 @@
-<hr />
-<div>
-  <h3>Fruits</h3>
-  <ul>
-    <li *ngFor="let fruit of fruitsx">
-      {{ fruit }} -
-      {{ isFruit(fruit) ? "This is a fruit." : "This is not a fruit." }}
-    </li>
-  </ul>
-  <hr />
-  <h3>Number Prime</h3>
-  <div
-    *ngIf="
-      receivedNumber !== null &&
-      receivedNumber !== undefined &&
-      receivedNumber > 0
-    "
-  >
-    <p>Number received from parent component: {{ receivedNumber }}</p>
-    <p *ngIf="isPrime(receivedNumber)">Prime</p>
-    <p *ngIf="!isPrime(receivedNumber)">Not Prime</p>
+<div class="col-xs-12 col-md-8">
+  <div>
+    <input
+      class="form-control"
+      type="text"
+      [(ngModel)]="inputText"
+      placeholder="{{ holderText }}"
+    />
+    <button class="btn btn-primary" (click)="onSendInput()">
+      {{ buttonText }}
+    </button>
   </div>
 </div>

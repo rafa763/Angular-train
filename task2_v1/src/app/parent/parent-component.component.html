@@ -1,12 +1,41 @@
-<div>
-  <input type="text" [(ngModel)]="fruitName" placeholder="Enter a fruit name" />
-  <button (click)="addItem()">Add Fruit</button>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-md-8">
+      <div>
+        <h3>Fruits</h3>
+        <app-child-component
+          (inputAdded)="onFruitReceived($event)"
+          [buttonText]="'Add Fruit'"
+          [holderText]="'Enter a fruit'"
+        ></app-child-component>
+        <ul class="list-group mt-3">
+          <li class="list-group-numbered" *ngFor="let fruit of fruits">
+            {{ fruit }}
+            {{ isFruit(fruit) ? "is a fruit." : "is not a fruit." }}
+          </li>
+        </ul>
+        <hr />
+        <h3>Number Prime</h3>
+        <app-child-component
+          (inputAdded)="onNumberReceived($event)"
+          [buttonText]="'Send Number'"
+          [holderText]="'Enter a number'"
+        ></app-child-component>
+        <div
+          *ngIf="
+            receivedNumber !== null &&
+            receivedNumber !== undefined &&
+            receivedNumber > 0
+          "
+          class="mt-3"
+        >
+          <p>Number received from child component: {{ receivedNumber }}</p>
+          <p *ngIf="isPrime(receivedNumber); else notPrime">Prime</p>
+          <ng-template #notPrime>
+            <p>Not Prime</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <input type="text" [(ngModel)]="primeNumber" placeholder="Enter a number" />
-  <button (click)="sendNumber()">Add Number</button>
-</div>
-<app-child-component
-  [fruitsx]="fruits"
-  [receivedNumber]="primeNumber"
-></app-child-component>

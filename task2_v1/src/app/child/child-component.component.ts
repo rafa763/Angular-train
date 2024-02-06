@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-child-component',
@@ -6,21 +6,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./child-component.component.css'],
 })
 export class ChildComponent {
-  @Input() fruitsx: string[] = [];
-  @Input() receivedNumber!: number;
+  inputText: string = '';
+  @Input() buttonText: string = '';
+  @Input() holderText: string = '';
 
-  // create an array populated with 5 fruits
-  theFruits: string[] = ['apple', 'banana', 'cherry', 'date', 'kiwi'];
+  @Output() inputAdded: EventEmitter<string> = new EventEmitter<string>();
 
-  isFruit(fruit: string): boolean {
-    return this.theFruits.includes(fruit.toLowerCase());
-  }
-
-  isPrime(num: number): boolean {
-    if (num <= 1) return false;
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-      if (num % i === 0) return false;
-    }
-    return true;
+  onSendInput() {
+    this.inputAdded.emit(this.inputText);
   }
 }
